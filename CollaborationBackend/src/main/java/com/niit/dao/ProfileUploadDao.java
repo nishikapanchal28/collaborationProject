@@ -1,5 +1,8 @@
 package com.niit.dao;
 
-public interface ProfileUploadDao {
+import com.niit.model.ProfilePicture;
 
+public interface ProfileUploadDao {
+	void save(ProfilePicture profilePicture);
+	ProfilePicture getProfilePic(String username);
 }

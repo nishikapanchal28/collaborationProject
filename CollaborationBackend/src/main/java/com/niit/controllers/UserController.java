@@ -1,5 +1,7 @@
 package com.niit.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,9 +17,10 @@ import com.niit.model.Error;
 public class UserController {
 	@Autowired
 	private UserDao userDao;	
-		
+
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public ResponseEntity<?> registerUser(@RequestBody User user){
+		
 		//client will send only username, password, email, role 
 		try{
 		
@@ -33,17 +36,62 @@ public class UserController {
 		}
 	}
 	@RequestMapping(value="/login",method=RequestMethod.POST)
-	public ResponseEntity<?> login(@RequestBody User user){
+	public ResponseEntity<?> login(@RequestBody User user,HttpSession session){
+		
 		User validUser=userDao.login(user);
 		if(validUser==null){
 			Error error=new Error(3,"Invalid credentials.. please enter valid username and password");
 			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
 		}
 		else{
+			session.setAttribute("user", validUser);
 			validUser.setOnline(true);
 			userDao.updateUser(validUser);
 			return new ResponseEntity<User>(validUser,HttpStatus.OK);
 		}
 	}
+	@RequestMapping(value="/logout",method=RequestMethod.PUT)
+	public ResponseEntity<?> logout(HttpSession session){
+		User user=(User)session.getAttribute("user");
+		if(user==null){//Unauthorized user
+			Error error =new Error(3,"Unauthorized user.. Please Login..");
+			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+		}
+		else{
+			user.setOnline(false);
+			userDao.updateUser(user);
+			session.removeAttribute("user");
+			session.invalidate();
+			return new ResponseEntity<Void>(HttpStatus.OK);
+		}
+	}
+	@RequestMapping(value="/getuser",method=RequestMethod.GET)
+	public ResponseEntity<?> getUser(HttpSession session){
+		//ONLY FOR AUTHENTICATION
+	          User user=(User)session.getAttribute("user");
+	          if(user==null){
+	        	 Error error=new Error(3,"Unauthorized user..");
+	        	 return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+	          }
+	          else
+	          {
+	        	  user=userDao.getUser(user.getId());
+	        	  return new ResponseEntity<User>(user,HttpStatus.OK);
+	          }
+	}
+	@RequestMapping(value="/updateuser",method=RequestMethod.PUT)
+	public ResponseEntity<?> updateUser(@RequestBody User updatedUserDetails,HttpSession session){
+		User user=(User)session.getAttribute("user");
+		if(user==null){
+			Error error=new Error(3,"Unauthorized user..");
+	   	 return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
+		}
+		else{
+			//firstname = John, lastname=Smith
+			userDao.updateUser(updatedUserDetails);
+			return new ResponseEntity<Void>(HttpStatus.OK);
+		}
+		
 
+}
 }
