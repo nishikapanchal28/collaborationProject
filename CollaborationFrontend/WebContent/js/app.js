@@ -2,7 +2,7 @@ var app=angular.module("app",['ngRoute','ngCookies'])
 app.config(function($routeProvider){
 	$routeProvider
 	.when('/register',{
-		templateUrl:'_user/register.html',
+		templateUrl:'_user/registerUser.html',
 		controller:'UserController'
 	})
 	.when('/login',{
@@ -13,11 +13,19 @@ app.config(function($routeProvider){
 		templateUrl:'_home/home.html'
 	})
 	.when('/profilepic',{
-		templateUrl:'_user/profilePic.html'
+		templateUrl:'_user/profilepic.html'
 	})
-.when('/edituser',{
+    .when('/edituser',{
     	templateUrl:'_user/edituserform.html',
     	controller:'EditController'
+    })
+    .when('/addJob',{
+    	templateUrl:'_job/jobform.html',
+    	controller:'JobController'
+    })
+    .when('/getAllJobs',{
+    	templateUrl:'_job/jobtitles.html',
+    	controller:'JobController'
     })
 })
 app.run(function($rootScope,$cookieStore,UserService,$location){

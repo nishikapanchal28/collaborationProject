@@ -21,8 +21,10 @@ import com.niit.model.Job;
 
 @RestController
 public class JobController {
+	
 	@Autowired
 	private JobDao jobDao;
+	
 	@RequestMapping(value="/saveJob",method=RequestMethod.POST)
 	public ResponseEntity<?> saveJob(@RequestBody Job job,HttpSession session){
 		User user=(User)session.getAttribute("user");

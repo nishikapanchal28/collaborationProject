@@ -91,20 +91,23 @@
 <dependency>
     <groupId>org.hibernate.common</groupId>
     <artifactId>hibernate-commons-annotations</artifactId>
-    <version>4.0.5.Final</version>
+    <version>5.0.1.Final</version>
 </dependency>
+
 <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-core</artifactId>
-    <version>4.3.11.Final</version>
+    <version>5.1.1.Final</version>
 </dependency>
+
 <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
 <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-entitymanager</artifactId>
-    <version>4.3.11.Final</version>
+    <version>5.1.1.Final</version>
 </dependency>
+
 <!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
 <dependency>
     <groupId>org.hibernate.javax.persistence</groupId>
@@ -115,8 +118,9 @@
 <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-validator</artifactId>
-    <version>5.2.4.Final</version>
+    <version>5.1.1.Final</version>
 </dependency>
+
 <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
@@ -129,12 +133,7 @@
     <artifactId>jackson-core</artifactId>
     <version>2.6.5</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-<dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.6.5</version>
-</dependency>
+
 <!-- https://mvnrepository.com/artifact/org.jboss/jandex -->
 <dependency>
     <groupId>org.jboss</groupId>
@@ -339,24 +338,14 @@
     <artifactId>spring-orm</artifactId>
     <version>4.1.9.RELEASE</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
-<dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-tx</artifactId>
-    <version>4.2.5.RELEASE</version>
-</dependency>
+
 <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
 <dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-web</artifactId>
     <version>4.2.5.RELEASE</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-<dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-webmvc</artifactId>
-    <version>4.2.5.RELEASE</version>
-</dependency>
+
 <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-core -->
 <dependency>
     <groupId>org.apache.tomcat.embed</groupId>
@@ -415,11 +404,6 @@
             <artifactId>standard</artifactId>
             <version>1.1.2</version>
         </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+   
   </dependencies>
 </project>

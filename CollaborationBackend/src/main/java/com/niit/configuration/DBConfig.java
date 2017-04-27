@@ -16,6 +16,7 @@ import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+
 @Configuration
 @EnableTransactionManagement
 @ComponentScan({ "com.niit" })
