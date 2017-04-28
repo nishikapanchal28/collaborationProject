@@ -33,6 +33,7 @@
                     <li><a href="" ng-show="currentUser.username">Welcome {{currentUser.username}}</a>
                     <li><a href="#profilepic" ng-show="currentUser.username"><img src="http://localhost:9191/CollaborationBackend/getimage/{{currentUser.username}}" alt="upload Picture" width="30px" height="30px" class="img-rounded"></a></li>
                     <li><a href="#edituser" ng-show="currentUser.username"><span class="glyphicon glyphicon-user"></span>Edit Profile</a></li>
+                                  <li><a href="#addJob" ng-show="currentUser.role==Admin">Post new jobs</a></li>
                     <li><a href="" ng-click="logout()" ng-show="currentUser.username">logout</a></li>
                     
                 </ul>
