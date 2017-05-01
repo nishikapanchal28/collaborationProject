@@ -3,5 +3,5 @@
 /.recommenders
 /RemoteSystemsTempFiles
 /Servers
-/CollaborationBackend
+/CollaborationBackend/target
 /BackendProject/target
