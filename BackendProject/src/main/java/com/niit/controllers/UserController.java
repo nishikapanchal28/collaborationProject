@@ -32,7 +32,7 @@ public class UserController {
 		}catch(Exception e){
 			e.printStackTrace();
 			Error error=new Error(2,"Couldnt insert user details. Cannot have null/duplicate values " + e.getMessage());
-			return new ResponseEntity<Error>(error , HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<Error>(error, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	@RequestMapping(value="/login",method=RequestMethod.POST)

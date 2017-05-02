@@ -25,16 +25,17 @@
                     <a class="navbar-brand" href="/">NIIT</a>
                 </div>
 
-               <ul class="nav navbar-nav ">
+               <ul class="nav navbar-nav">
                     <li><a href="#home"><i class="fa fa-home"></i> Home</a></li>
                     <li><a href=""><i class="fa fa-shield"></i> About Us</a></li>
-                    <li><a href="#register" ng-hide="currentUser.username">Register</a></li>
-                    <li><a href="#login" ng-hide="currentUser.username">Sign in</a>
+                    <li><a href="#register" ng-hide="currentUser.username">register</a>
+                    <li><a href="#login" ng-hide="currentUser.username">Sign in</a></li>
                     <li><a href="" ng-show="currentUser.username">Welcome {{currentUser.username}}</a>
-                    <li><a href="#profilepic" ng-show="currentUser.username"><img src="http://localhost:9191/CollaborationBackend/getimage/{{currentUser.username}}" alt="upload Picture" width="30px" height="30px" class="img-rounded"></a></li>
+                    <li><a href="#profilepic" ng-show="currentUser.username"><img src="http://localhost:9191/BackendProject/getimage/{{currentUser.username}}" alt="upload Picture" width="30px" height="30px" class="img-rounded"></a></li>
                     <li><a href="#edituser" ng-show="currentUser.username"><span class="glyphicon glyphicon-user"></span>Edit Profile</a></li>
-                                  <li><a href="#addJob" ng-show="currentUser.role==Admin">Post new jobs</a></li>
+                    <li><a href="#addJob" ng-show="currentUser.role==Admin">Post new jobs</a></li>
                     <li><a href="" ng-click="logout()" ng-show="currentUser.username">logout</a></li>
+              
                     
                 </ul>
             </div>
@@ -63,5 +64,4 @@
 <script type="text/javascript" src="_user/usercontroller.js"></script>
 <script type="text/javascript" src="_user/userservice.js"></script>
 <script type="text/javascript" src="_user/editcontroller.js"></script>
-
 </html>

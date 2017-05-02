@@ -3,7 +3,7 @@ app.factory('UserService',function($http){
 	var BASE_URL="http://localhost:9191/BackendProject"
 	
 	userService.registerUser=function(user){
-		return $http.post(BASE_URL+"/register",user);
+		return $http.post(BASE_URL+ "/register",user);
 	}
 	
 	userService.login=function(user){

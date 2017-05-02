@@ -2,7 +2,7 @@ var app=angular.module("app",['ngRoute','ngCookies'])
 app.config(function($routeProvider){
 	$routeProvider
 	.when('/register',{
-		templateUrl:'_user/registerUser.html',
+		templateUrl:'_user/register.html',
 		controller:'UserController'
 	})
 	.when('/login',{
@@ -13,7 +13,7 @@ app.config(function($routeProvider){
 		templateUrl:'_home/home.html'
 	})
 	.when('/profilepic',{
-		templateUrl:'_user/profilepic.html'
+		templateUrl:'_user/profilePic.html'
 	})
     .when('/edituser',{
     	templateUrl:'_user/edituserform.html',
