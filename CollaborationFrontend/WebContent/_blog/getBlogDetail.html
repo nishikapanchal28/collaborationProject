@@ -5,6 +5,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<div>{{blogPost.title}}</div>
+<span><strong>created By:</strong>{{blogPost.createdBy.username}}</span>
+<span><strong>created On:</strong>{{blogPost.createdOn|date:'medium'}}</span></div></div>
+</div>
 </body>
 </html>

@@ -48,7 +48,12 @@ public class BlogPostController {
 			Error error=new Error(1,"Unauthroized user");
 			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
 		}
-		List<BlogPost> blogPosts=blogDao.getBlogPosts(approved);
+		List<BlogPost> blogPosts=null;
+		if(user.getRole().equals("admin"))
+			blogPosts=blogDao.getBlogPosts(0);
+		else
+			blogPosts=blogDao.getBlogPosts(1);
+	
 		return new ResponseEntity<List<BlogPost>>(blogPosts,HttpStatus.OK);
 	}
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET)

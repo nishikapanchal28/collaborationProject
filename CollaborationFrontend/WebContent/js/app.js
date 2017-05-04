@@ -27,6 +27,18 @@ app.config(function($routeProvider){
     	templateUrl:'_job/jobtitles.html',
     	controller:'JobController'
     })
+      .when('/addPost',{
+    	templateUrl:'_blog/blogform.html',
+    	controller:'BlogController'
+    }) 
+        .when('/getAllBlogs',{
+    	templateUrl:'_blog/getBlogTitles.html',
+    	controller:'JobController'
+    })  
+        .when('/getBlogDetail/:id',{
+    	templateUrl:'_blog/getBlogDetail.html',
+    	controller:'JobController'
+    })
 })
 app.run(function($rootScope,$cookieStore,UserService,$location){
 	console.log('entering run method ')
