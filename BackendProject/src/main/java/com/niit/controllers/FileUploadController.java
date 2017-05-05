@@ -23,8 +23,7 @@ public class FileUploadController {
 	@Autowired
 	private ProfileUploadDao profileUploadDao;
 	@RequestMapping(value="/doUpload",method=RequestMethod.POST)
-public ResponseEntity<?> uploadProfilePic(
-		HttpSession session,@RequestParam CommonsMultipartFile fileUpload){
+public ResponseEntity<?> uploadProfilePic(HttpSession session,@RequestParam CommonsMultipartFile fileUpload){
 		User user=(User)session.getAttribute("user");
 		if(user==null){
 			Error error=new Error(3,"Unauthorized user.. Please login");
