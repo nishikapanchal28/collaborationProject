@@ -1,5 +1,6 @@
-app.controller('BlogController',fuction($scope,$location,BlogService,$routeParams){
+app.controller('BlogDetailController',fuction($scope,$location,BlogService,$routeParams){
 	var id=$routeParams.id;
+	$scope blogComment={body:'',blogPost:{}}
 	$scope.blogPost=BlogService.getBlogPostById(id)
 	.then(function(response){
 		$scope.blogPost=response.data

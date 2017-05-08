@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+list of users
+<div class="table table-striped">
+<table>
+<tr><th>username</th><th>email</th><th>isonline</th><th>role</th></tr>
+<tr ng-repeat="u in usersList">
+<td>{{u.username}}</td>
+<td>{{u.email}}</td>
+<td ng-if="u.online">YES</td>
+<td ng-if="!u.online">NO</td>
+<td>{{role}}</td>
+<td><a href="" ng-click="friendRequest(u.username)" class="btn btn-xs btn default">send friend request</a>
+</tr>
+
+</table></div>
+</body>
+</html>

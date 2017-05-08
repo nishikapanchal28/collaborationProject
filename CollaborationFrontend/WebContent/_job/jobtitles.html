@@ -8,11 +8,9 @@
 	<table>
 	<tr ng-repeat="job in jobs">
 
-	<td ng-if="currentUser.role=='Student' || currentUser.role=='Employee' || currentUser.role=='Alumini' "
+	<td ng-if="currentUser.role=='Student' || currentUser.role=='Employee' || currentUser.role=='Alumini' " ng-show="job.active">{{job.jobTitle}}</td>
 
-	ng-show="job.active">{{job.jobTitle}}</td>
-
-	<td ng-if="currentUser.role=='Admin'">{{job.jobTitle}}</td>
+	<td ng-if="currentUser.role=='admin'">{{job.jobTitle}}</td>
 	</tr>
 
 	</table>
