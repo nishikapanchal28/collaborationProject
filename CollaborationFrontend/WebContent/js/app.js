@@ -33,11 +33,11 @@ app.config(function($routeProvider){
     }) 
         .when('/getAllBlogs',{
     	templateUrl:'_blog/getBlogTitles.html',
-    	controller:'JobController'
+    	controller:'BlogController'
     })  
         .when('/getBlogDetail/:id',{
     	templateUrl:'_blog/getBlogDetail.html',
-    	controller:'JobController'
+    	controller:'BlogDetailController'
     })
     .when('/getAllUsers',{
     	templateUrl:'_friend/userslist.html',
@@ -51,10 +51,11 @@ app.config(function($routeProvider){
     	templateUrl:'_blog/getBlogForApproval.html',
     	controller:'BlogDetailController'
     })
-    .when('/listofffriends',{
+    .when('/listoffriends',{
     	templateUrl:'_friend/friendslist.html',
     	controller:'FriendController'
     })
+    
     
 })
 app.run(function($rootScope,$cookieStore,UserService,$location){

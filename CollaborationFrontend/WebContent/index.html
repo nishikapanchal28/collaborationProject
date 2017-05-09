@@ -162,12 +162,14 @@ span.psw {
                   
                     <li><a href="#profilepic" ng-show="currentUser.username"><img src="http://localhost:9191/BackendProject/getimage/{{currentUser.username}}" alt="upload Picture" width="30px" height="30px" class="img-rounded"></a></li>
                     <li><a href="#edituser" onclick="document.getElementById('id01').style.display='block'" ng-show="currentUser.username"><span class="glyphicon glyphicon-user"></span>Edit Profile</a></li>
-                    <li><a href="#addJob" ng-show="currentUser.role==admin">Post new job</a></li>
+                    <li><a href="#addJob" ng-show="currentUser.role=='admin'">Post new job</a></li>
                     <li><a href="#getAllJobs" ng-show="currentUser.username">view jobs</a></li>
                     <li><a href="#getAllBlogs" ng-show="currentUser.username">view blog</a></li>
                     <li><a href="#addPost" ng-show="currentUser.username">add new post</a></li>
                     <li><a href="" ng-click="logout()" ng-show="currentUser.username">logout</a></li>
                       <li><a href="" ng-show="currentUser.username">Welcome {{currentUser.username}}</a>
+                   <li><a href="#/getAllUsers" ng-show="currentUser.username">view all users</a></li>
+                      <li><a href="#pendingRequests" ng-show="currentUser.username">Pending Requests</a></li>
                 </ul>
             
             </ul>
@@ -201,6 +203,8 @@ span.psw {
 <script type="text/javascript" src="_job/jobservice.js"></script>
 <script type="text/javascript" src="_blog/blogcontroller.js"></script>
 <script type="text/javascript" src="_blog/blogservice.js"></script>
-<script type="text/javascript" src="_blog/blogdetailcontroller.js"></script>
+<script type="text/javascript" src="_blog/controllerblogdetails.js"></script>
+<script type="text/javascript" src="_friend/friendcontroller.js"></script>
+<script type="text/javascript" src="_friend/friendservice.js"></script>
 
 </html>

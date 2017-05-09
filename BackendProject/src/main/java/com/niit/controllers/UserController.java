@@ -23,7 +23,6 @@ public class UserController {
 		
 		//client will send only username, password, email, role 
 		try{
-		
 		user.setEnabled(true);
 		user.setOnline(false);
 		User savedUser=userDao.registerUser(user);

@@ -9,4 +9,17 @@ app.controller("BlogController",function($scope,$location,BlogService){
 			$location.path('/login')
 		})
 	}
+	$scope.blogPosts=BlogService.getAllBlogs()
+	.then(function(response){
+		$scope.blogPosts=response.data;
+	},function(response){
+		console.log(response.status)
+	})
+	
+	$scope.postsForApproval=BlogService.getAllBlogsForApproval()
+	.then(function(response){
+		$scope.postsForApproval=response.data;
+	},function(response){
+		console.log(response.status)
+	})
 })
