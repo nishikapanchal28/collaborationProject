@@ -1,5 +1,7 @@
 package com.niit.dao;
 
+import java.util.List;
+
 import com.niit.model.User;
 
 public interface UserDao {
@@ -7,4 +9,5 @@ public interface UserDao {
 	User login(User user);
 	void updateUser(User user);
 	User getUser(int id);
+	List<String> getOnlineUsers();
 }

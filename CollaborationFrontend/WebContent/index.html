@@ -25,134 +25,22 @@
   .affix + .container-fluid {
       padding-top: 70px;
   }
-  </style>
-  <style>
-/* Full-width input fields */
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-/* Set a style for all buttons */
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-button:hover {
-    opacity: 0.8;
-}
-
-/* Extra styles for the cancel button */
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-}
-
-/* Center the image and position the close button */
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
+ 
+ /*  div.relative{
     position: relative;
-}
-
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
-}
-
-.container {
-    padding: 16px;
-}
-
-span.psw {
-    float: right;
-    padding-top: 16px;
-}
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
-}
-
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button (x) */
-.close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: red;
-    cursor: pointer;
-}
-
-/* Add Zoom Animation */
-.animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)} 
-    to {-webkit-transform: scale(1)}
-}
+   top:10px;
+   
     
-@keyframes animatezoom {
-    from {transform: scale(0)} 
-    to {transform: scale(1)}
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
-}
-</style>
+    }  */
+    </style>
 </head>
 <body ng-app="app">
 <header>
+<div class="relative">
             <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
   <ul class="nav navbar-nav">
                     <a class="navbar-brand" href="/">NIIT</a>
-                </div>
+              
 
                <ul class="nav navbar-nav">
                     <li><a href="#home"><i class="fa fa-home"></i> Home</a></li>
@@ -161,20 +49,23 @@ span.psw {
  -->                    <li><a href="#login"  ng-hide="currentUser.username"> <span class="glyphicon glyphicon-user"></span>Sign in OR Sign up</a></li>
                   
                     <li><a href="#profilepic" ng-show="currentUser.username"><img src="http://localhost:9191/BackendProject/getimage/{{currentUser.username}}" alt="upload Picture" width="30px" height="30px" class="img-rounded"></a></li>
-                    <li><a href="#edituser" onclick="document.getElementById('id01').style.display='block'" ng-show="currentUser.username"><span class="glyphicon glyphicon-user"></span>Edit Profile</a></li>
+                    <li><a href="#edituser" onclick="document.getElementById('id01').style.display='block'" ng-show="currentUser.username"><span class="glyphicon glyphicon-user">Edit Profile</span></a></li>
                     <li><a href="#addJob" ng-show="currentUser.role=='admin'">Post new job</a></li>
                     <li><a href="#getAllJobs" ng-show="currentUser.username">view jobs</a></li>
                     <li><a href="#getAllBlogs" ng-show="currentUser.username">view blog</a></li>
                     <li><a href="#addPost" ng-show="currentUser.username">add new post</a></li>
                     <li><a href="" ng-click="logout()" ng-show="currentUser.username">logout</a></li>
-                      <li><a href="" ng-show="currentUser.username">Welcome {{currentUser.username}}</a>
+              
                    <li><a href="#/getAllUsers" ng-show="currentUser.username">view all users</a></li>
-                      <li><a href="#pendingRequests" ng-show="currentUser.username">Pending Requests</a></li>
+                      <li><a href="#/pendingRequests" ng-show="currentUser.username">Pending Requests</a></li>
+                        <li><a href="#chat" ng-show="currentUser.username">chat </a></li>
+                                <li><a href="" ng-show="currentUser.username">Welcome {{currentUser.username}}</a>
                 </ul>
             
             </ul>
             
             </nav>
+              </div>
         </header>
        <div ng-view></div>
  
@@ -206,5 +97,12 @@ span.psw {
 <script type="text/javascript" src="_blog/controllerblogdetails.js"></script>
 <script type="text/javascript" src="_friend/friendcontroller.js"></script>
 <script type="text/javascript" src="_friend/friendservice.js"></script>
+<script src="js/sockjs/sockjs.js"></script>
+    <script src="js/stomp/dist/stomp.js"></script>
+
+
+<script type="text/javascript" src="_chat/chatCtrl.js"></script>
+<script type="text/javascript" src="_chat/chatservice.js"></script>
+
 
 </html>

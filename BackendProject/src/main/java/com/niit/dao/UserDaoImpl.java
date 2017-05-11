@@ -1,5 +1,7 @@
 package com.niit.dao;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.Query;
@@ -46,4 +48,14 @@ public class UserDaoImpl implements UserDao{
 		return user;
 		
 	}
+	@Override
+	public List<String> getOnlineUsers() {
+		// TODO Auto-generated method stub
+		Session session=sessionFactory.openSession();
+		Query query=session.createQuery("select username from User where online=1");
+		List<String> onlineUsers=query.list();
+		session.close();
+		return onlineUsers;
+	}
+	
 }

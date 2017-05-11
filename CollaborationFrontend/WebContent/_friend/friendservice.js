@@ -1,20 +1,22 @@
 app.factory('FriendService',function($http){
-	var blogService={}
+	var friendService={}
 	var BASE_URL="http://localhost:9191/BackendProject"
 	
-	blogService.getAllUsers=function(){
+	friendService.getAllUsers=function(){
 		return $http.get(BASE_URL + "/getAllUsers")
 	}	
-	blogService.sendFriendRequest=function(username){
+	friendService.sendFriendRequest=function(username){
 		return $http.put(BASE_URL + "/friendRequest"+ username)
 	}	
-	blogService.pendingRequests=function(){
+	friendService.pendingRequests=function(){
 		return $http.get(BASE_URL + "/pendingRequests")
 	}	
-	blogService.updatependingrequest=function(from,status){
+	friendService.updatependingrequest=function(from,status){
 		return $http.put(BASE_URL + "/updatependingrequest/"+from+"/"+status)
 	}	
-	
+	friendService.getAllFriends=function(){
+		return $http.get(BASE_URL +"/friendslist")
+	}
 		
 	return friendService;
 })

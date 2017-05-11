@@ -6,8 +6,8 @@
 </head>
 <body>
 <ul ng-repeat="friend in friendslist">
-<li>friend.from</li>
-<li>friend.to</li>
+<li ng-hide="friend.from==currentUser.username">{{friend.from}}</li>
+<li ng-hide="friend.to==currentUser.username">{{friend.to}}</li>
 </ul>
 </body>
 </html>
