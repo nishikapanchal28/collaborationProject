@@ -1,4 +1,4 @@
-package com.niit.configuration;
+/*package com.niit.configuration;
 
 import java.util.List;
 import org.springframework.context.annotation.ComponentScan;
@@ -72,3 +72,4 @@ public class WebSocketconfiguration implements WebSocketMessageBrokerConfigurer{
 		
 	}
 }
+*/

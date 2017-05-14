@@ -5,7 +5,7 @@ app.factory('BlogService',function($http){
 	blogService.saveBlogPost=function(blog){
 		return $http.post(BASE_URL + "/saveBlogPost",blog)
 	}	
-	blogService.getAllBlogs=function(){
+	blogService. getBlogList=function(){
 		return $http.get(BASE_URL + "/list/"+ 1)
 	}	
 	blogService.getAllBlogsForApproval=function(){
@@ -17,7 +17,7 @@ app.factory('BlogService',function($http){
 	blogService.addBlogComment=function(blogComment){
 		return $http.post(BASE_URL + "/addComment",blogComment)
 	}	
-	blogService.getBlogComments=function(blogPostId){
+	blogService.BlogComments=function(blogPostId){
 		return $http.get(BASE_URL + "/getBlogComments",+blogPostId)
 	}	
 	blogService.updateApproval=function(blogPost){

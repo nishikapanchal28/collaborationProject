@@ -41,7 +41,7 @@ public class BlogPostController {
 		
 		
 	}
-	@RequestMapping(method = RequestMethod.GET, value = "/list/{approved}")
+	@RequestMapping(value = "/list/{approved}", method = RequestMethod.GET)
 	public ResponseEntity<?> getBlogList(@PathVariable int approved,HttpSession session){
 		User user=(User)session.getAttribute("user");
 		if(user==null){

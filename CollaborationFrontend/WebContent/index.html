@@ -51,6 +51,7 @@
                     <li><a href="#profilepic" ng-show="currentUser.username"><img src="http://localhost:9191/BackendProject/getimage/{{currentUser.username}}" alt="upload Picture" width="30px" height="30px" class="img-rounded"></a></li>
                     <li><a href="#edituser" onclick="document.getElementById('id01').style.display='block'" ng-show="currentUser.username"><span class="glyphicon glyphicon-user">Edit Profile</span></a></li>
                     <li><a href="#addJob" ng-show="currentUser.role=='admin'">Post new job</a></li>
+                       <li><a href="#getblogsforapproval" ng-show="currentUser.role=='admin'">blogs for approval</a></li>
                     <li><a href="#getAllJobs" ng-show="currentUser.username">view jobs</a></li>
                     <li><a href="#getAllBlogs" ng-show="currentUser.username">view blog</a></li>
                     <li><a href="#addPost" ng-show="currentUser.username">add new post</a></li>
