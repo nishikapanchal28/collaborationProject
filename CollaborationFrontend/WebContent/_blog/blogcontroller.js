@@ -9,7 +9,7 @@ app.controller("BlogController",function($scope,$location,BlogService){
 			$location.path('/login')
 		})
 	}
-	$scope.blogPosts=BlogService.getAllBlogs()
+	$scope.blogPosts=BlogService.getBlogList()
 	.then(function(response){
 		$scope.blogPosts=response.data;
 	},function(response){

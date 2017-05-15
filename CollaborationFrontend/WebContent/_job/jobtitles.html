@@ -21,7 +21,7 @@ Description : {{job.jobDescription}}<br>
 	<b>Company:</b>{{job.company}}<br>
 	<b>Posted On:</b>{{job.postedOn | date:'yyyy:MM:dd'}}<br>
 	<b>Skills Required:</b>{{job.skillsRequired}}<br>
-	<b ng-show="currentUser.role=='admin'">Active:</b>
+	<b ng-show="currentUser.role=='admin' || currentUser.role=='admin'">Active:</b>
 	<b ng-if="job.active">YES</b>
 	<b ng-if="!job.active">NO</b>
 </div>

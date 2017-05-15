@@ -78,8 +78,7 @@ public class BlogPostController {
 		blogComment.setCommentedBy(user);
 		blogComment.setCommentedOn(new Date());
 		blogDao.addBlogComment(blogComment);
-		return new ResponseEntity<Void>(HttpStatus.OK);
-		
+		return new ResponseEntity<BlogComment>(blogComment, HttpStatus.OK);
 	}
 
 	@RequestMapping(value="/getBlogComments/{blogPostId}",method=RequestMethod.GET)

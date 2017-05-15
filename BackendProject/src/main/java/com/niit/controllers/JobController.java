@@ -34,7 +34,7 @@ public class JobController {
 		}
 		else{
 		String role=user.getRole();
-		if(role.equals("admin")){
+		if(role.equals("admin") || role.equals("Employee")) {
 		job.setPostedOn(new Date());
 		job.setActive(true);
 		jobDao.saveJobDetails(job);
