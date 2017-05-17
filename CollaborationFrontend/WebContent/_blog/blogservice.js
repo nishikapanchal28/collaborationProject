@@ -11,9 +11,7 @@ app.factory('BlogService',function($http){
 	blogService.getAllBlogsForApproval=function(){
 		return $http.get(BASE_URL + "/list/"+ 0)
 	}
-	blogService. getBlogPost=function(){
-		return $http.get(BASE_URL + "/get")
-	}	
+
 	blogService.getBlogPostById=function(id){
 		return $http.get(BASE_URL + "/get",+id)
 	}	

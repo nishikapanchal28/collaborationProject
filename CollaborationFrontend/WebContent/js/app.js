@@ -27,19 +27,19 @@ app.config(function($routeProvider){
     	templateUrl:'_job/jobtitles.html',
     	controller:'JobController'
     })
-      .when('/addPost',{
-    	templateUrl:'_blog/blogform.html',
+   .when('/addPost',{
+    	templateUrl:'_blog/blogForm.html',
     	controller:'BlogController'
-    }) 
-        .when('/getAllBlogs',{
+    })
+    .when('/getAllBlogs',{
     	templateUrl:'_blog/getBlogTitles.html',
     	controller:'BlogController'
-    })  
-        .when('/getBlogDetail/:id',{
+    })
+    .when('/getBlogDetail/:id',{
     	templateUrl:'_blog/getBlogDetail.html',
     	controller:'BlogDetailController'
     })
-      .when('/getBlogForApproval/:id',{
+    .when('/getBlogForApproval/:id',{
     	templateUrl:'_blog/getBlogForApproval.html',
     	controller:'BlogDetailController'
     })

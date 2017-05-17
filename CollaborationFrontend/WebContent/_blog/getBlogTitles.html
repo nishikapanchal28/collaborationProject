@@ -3,34 +3,46 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+tr:hover {background-color: #f5f5f5}
+tr:nth-child(even){background-color: #f2f2f2}
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
 </head>
 <body>
-
-<div class="table-responsive" ng-show="currentUser.role=='admin'|| currentUser.role=='Employee'">
-List of Blog Posts waiting for approval
-<table class="table">
+<div class="container" ng-show="currentUser.role=='admin'|| currentUser.role=='Employee'">
+<div><center><h2>List of Blog Posts waiting for approval</h2></center></div>
+<table>
 <tr><th>Recent Posts</th></tr>
 <tr ng-repeat="blogPost in postsForApproval | orderBy:'time':true">
-
 <td><a href="#getBlogForApproval/{{blogPost.id}}">{{blogPost.title}}</a></td>
 <td>Created By: {{blogPost.createdBy.username}}</td>
 <td>Created On: {{blogPost.createdOn | date:'MM/dd/yyyy HH:mm'}}</td>
 </tr>
-
 </table>
 </div>
 
-<div class="table-responsive">
-List of Blog Posts 
-<table class="table">
+<div class="container">
+<div><center><h2>List of Blog Posts </h2></center></div>
+<table>
 <tr><th>Recent Posts</th></tr>
 <tr ng-repeat="blogPost in blogPosts | orderBy:'time':true">
-
 <td><a href="#getBlogDetail/{{blogPost.id}}">{{blogPost.title}}</a></td>
 <td>Created By: {{blogPost.createdBy.username}}</td>
 <td>Created On: {{blogPost.createdOn | date:'MM/dd/yyyy HH:mm'}}</td>
 </tr>
-
 </table>
 </div>
 </body>

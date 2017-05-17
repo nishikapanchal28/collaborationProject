@@ -82,7 +82,7 @@ public class BlogPostController {
 	}
 
 	@RequestMapping(value="/getBlogComments/{blogPostId}",method=RequestMethod.GET)
-	public ResponseEntity<?> blogComments(@PathVariable int blogPostId,HttpSession session){
+	public ResponseEntity<?>blogComments(@PathVariable int blogPostId,HttpSession session){
 		User user=(User)session.getAttribute("user");
 		if(user==null){
 			Error error=new Error(1,"Unauthroized user");

@@ -5,8 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<h3>WELCOME TO NIIT PORTAL</h3>
-<a href="" ng-show="currentUser.role=='admin'">you have {{blogPost.length}} of blogposts waiting for approval</a>
+<center><h3>WELCOME TO NIIT PORTAL</h3></center>
+<a href="" ng-show="currentUser.role=='admin' || currentUser.role=='Employee'">you have {{blogPost.length}} of blogposts waiting for approval</a>
 </body>
 </html>
