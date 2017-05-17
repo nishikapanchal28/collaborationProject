@@ -20,7 +20,7 @@ app.factory('BlogService',function($http){
 	blogService.addBlogComment=function(blogComment){
 		return $http.post(BASE_URL + "/addComment",blogComment)
 	}	
-	blogService.BlogComments=function(blogPostId){
+	blogService.getBlogComments=function(blogPostId){
 		return $http.get(BASE_URL + "/getBlogComments",+blogPostId)
 	}	
 	blogService.updateApproval=function(blogPost){

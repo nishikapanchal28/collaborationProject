@@ -33,6 +33,45 @@
     
     }  */
     </style>
+    <style>
+.dropbtn {
+ background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+</style>
 </head>
 <body ng-app="app">
 <header>
@@ -40,38 +79,45 @@
             <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
   <ul class="nav navbar-nav">
                     <a class="navbar-brand" href="/">NIIT</a>
-              
-
                <ul class="nav navbar-nav">
+               <div class="dropdown">
+  <button class="dropbtn"  ng-show="currentUser.username">JOB</button>
+  <div class="dropdown-content">
+    <a href="#addJob" ng-show="currentUser.role=='admin' || currentUser.role== 'Employee'">Post new job</a>
+    <a href="#getAllJobs" ng-show="currentUser.username">view jobs</a>
+  </div>
+</div>
+<div class="dropdown">
+  <button class="dropbtn"  ng-show="currentUser.username">BLOG</button>
+  <div class="dropdown-content">
+    <a href="#addPost" ng-show="currentUser.username">add new post</a>
+    <a href="#getAllBlogs" ng-show="currentUser.username">view blog</a>
+    <a href="#getblogsforapproval" ng-show="currentUser.role=='admin' || currentUser.role== 'Employee'">blogs for approval</a>
+  </div>
+</div>
+<div class="dropdown">
+  <button class="dropbtn"  ng-show="currentUser.username">FRIEND</button>
+  <div class="dropdown-content">
+    <a href="#/getAllUsers" ng-show="currentUser.username">view all users</a>
+    <a href="#/pendingRequests" ng-show="currentUser.username">Pending Requests</a>
+  </div>
+</div>
                     <li><a href="#home" ng-show="currentUser.username"><i class="fa fa-home"></i> Home</a></li>
                     <li><a href=""><i class="fa fa-shield"></i> About Us</a></li>
-<!--                     <li><a href="#register" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"ng-hide="currentUser.username">register</a>
- -->                    <li><a href="#login"  ng-hide="currentUser.username"> <span class="glyphicon glyphicon-user"></span>Sign in OR Sign up</a></li>
-                  
+                     <li><a href="#register" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"ng-hide="currentUser.username">register</a>
+                    <li><a href="#login"  ng-hide="currentUser.username"> <span class="glyphicon glyphicon-user"></span>Sign in OR Sign up</a></li>                  
                     <li><a href="#profilepic" ng-show="currentUser.username"><img src="http://localhost:9191/BackendProject/getimage/{{currentUser.username}}" alt="upload Picture" width="30px" height="30px" class="img-rounded"></a></li>
                     <li><a href="#edituser"  ng-show="currentUser.username"><span class="glyphicon glyphicon-user">Edit Profile</span></a></li>
-                    <li><a href="#addJob" ng-show="currentUser.role=='admin' || currentUser.role== 'Employee'">Post new job</a></li>
-                       <li><a href="#getblogsforapproval" ng-show="currentUser.role=='admin' || currentUser.role== 'Employee'">blogs for approval</a></li>
-                    <li><a href="#getAllJobs" ng-show="currentUser.username">view jobs</a></li>
-                    <li><a href="#getAllBlogs" ng-show="currentUser.username">view blog</a></li>
-                    <li><a href="#addPost" ng-show="currentUser.username">add new post</a></li>
-                    <li><a href="" ng-click="logout()" ng-show="currentUser.username">logout</a></li>
-              
-                   <li><a href="#/getAllUsers" ng-show="currentUser.username">view all users</a></li>
-                      <li><a href="#/pendingRequests" ng-show="currentUser.username">Pending Requests</a></li>
                         <li><a href="#chat" ng-show="currentUser.username">chat </a></li>
+                              <li><a href="" ng-click="logout()" ng-show="currentUser.username">logout</a></li>
                                 <li><a href="" ng-show="currentUser.username">Welcome {{currentUser.username}}</a>
                 </ul>
-            
             </ul>
-            
             </nav>
               </div>
         </header>
        <div ng-view></div>
- 
 </body>
-
 <!-- Angular JS module -->
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
@@ -99,11 +145,7 @@
 <script type="text/javascript" src="_friend/friendcontroller.js"></script>
 <script type="text/javascript" src="_friend/friendservice.js"></script>
 <script src="js/sockjs/sockjs.js"></script>
-    <script src="js/stomp/dist/stomp.js"></script>
-
-
+<script src="js/stomp/dist/stomp.js"></script>
 <script type="text/javascript" src="_chat/chatCtrl.js"></script>
 <script type="text/javascript" src="_chat/chatservice.js"></script>
-
-
 </html>
