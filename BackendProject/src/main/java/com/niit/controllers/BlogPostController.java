@@ -49,7 +49,7 @@ public class BlogPostController {
 			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
 		}
 		List<BlogPost> blogPosts=null;
-		if(user.getRole().equals("admin"))
+		if(user.getRole().equals("admin")|| user.getRole().equals("Employee"))
 			blogPosts=blogDao.getBlogPosts(0);
 		else
 			blogPosts=blogDao.getBlogPosts(1);

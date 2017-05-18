@@ -12,6 +12,9 @@ app.config(function($routeProvider){
 	.when('/home',{
 		templateUrl:'_home/home.html'
 	})
+	.when('/aboutus',{
+		templateUrl:'_home/about.html'
+	})
 	.when('/profilepic',{
 		templateUrl:'_user/profilePic.html'
 	})
@@ -28,7 +31,7 @@ app.config(function($routeProvider){
     	controller:'JobController'
     })
    .when('/addPost',{
-    	templateUrl:'_blog/blogForm.html',
+    	templateUrl:'_blog/blogform.html',
     	controller:'BlogController'
     })
     .when('/getAllBlogs',{
@@ -42,6 +45,11 @@ app.config(function($routeProvider){
     .when('/getBlogForApproval/:id',{
     	templateUrl:'_blog/getBlogForApproval.html',
     	controller:'BlogDetailController'
+    })
+     .when('/BlogForApproval',{
+    	templateUrl:'_blog/blogsforapproval.html',
+    	controller:'BlogController'
+    	
     })
     .when('/getAllUsers',{
     	templateUrl:'_friend/userslist.html',

@@ -101,18 +101,18 @@
   <div class="dropdown-content">
     <a href="#addPost" ng-show="currentUser.username">add new blog</a>
     <a href="#getAllBlogs" ng-show="currentUser.username">view blog</a>
-    <a href="#getblogsforapproval" ng-show="currentUser.role=='admin' || currentUser.role== 'Employee'">blogs for approval</a>
+    <a href="#BlogForApproval" ng-show="currentUser.role=='admin' || currentUser.role== 'Employee'">blogs for approval</a>
   </div>
 </div>
 <div class="dropdown">
   <button class="dropbtn"  ng-show="currentUser.username">FRIEND</button>
   <div class="dropdown-content">
     <a href="#/getAllUsers" ng-show="currentUser.username">view all users</a>
-    <a href="#/pendingRequests" ng-show="currentUser.username">Pending Requests</a>
+    <a href="#pendingRequests" ng-show="currentUser.username">Pending Requests</a>
   </div>
 </div>
                     <li><a href="#home" ng-show="currentUser.username"><i class="fa fa-home"></i> Home</a></li>
-                    <li><a href=""><i class="fa fa-shield"></i> About Us</a></li>
+                    <li><a href="#aboutus"><i class="fa fa-shield"></i> About Us</a></li>
                     <li><a href="#login"  ng-hide="currentUser.username"> <span class="glyphicon glyphicon-user"></span>Sign in OR Sign up</a></li>                  
                     <li><a href="#profilepic" ng-show="currentUser.username"><img src="http://localhost:9191/BackendProject/getimage/{{currentUser.username}}" alt="upload Picture" width="30px" height="30px" class="img-rounded"></a></li>
                     <li><a href="#edituser"  ng-show="currentUser.username"><span class="glyphicon glyphicon-user">Edit Profile</span></a></li>
@@ -127,18 +127,13 @@
        <div ng-view></div>
 </body>
 <!-- Angular JS module -->
-<script type="text/javascript"
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
 <!--  Angular JS ngRoute -->
-<script type="text/javascript"
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
-	<script type="text/javascript"
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
 <!-- BootStrap -->
-<script type="text/javascript"
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.js"></script>
-<script type="text/javascript"
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
 <script type="text/javascript" src="js/app.js"></script>

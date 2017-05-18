@@ -48,7 +48,7 @@ public class FriendDaoImpl implements FriendDao{
 
 		public List<Friend> pendingRequests(String toUsername) {
 			Session session=sessionFactory.openSession();
-			Query query=session.createQuery("from friend where to=? and status=?");
+			Query query=session.createQuery("from Friend where to=? and status=?");
 			query.setString(0, toUsername);
 			query.setCharacter(1, 'P');
 			List<Friend> pendingRequests=query.list();
