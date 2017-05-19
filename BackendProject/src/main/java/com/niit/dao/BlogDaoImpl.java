@@ -30,8 +30,6 @@ public class BlogDaoImpl implements BlogDao {
 		session.close();
 		return blogPosts;
 	}	
-	
-	
 	public BlogPost getBlogPostById(int id) {
 		Session session=sessionFactory.openSession();
 		BlogPost blogPost=(BlogPost)session.get(BlogPost.class, id);

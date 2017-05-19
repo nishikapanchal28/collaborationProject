@@ -2,7 +2,7 @@ app.controller('FriendController',function($scope,$location,FriendService){
 	$scope.friendRequest=function(username){
 		FriendService.sendFriendRequest(username)
 		.then(function(response){
-			alert("Friend request has been sent to " + username)
+		/*	alert("Friend request has been sent to " + username)*/
 			getAllUsers();
 			$location.path("/getAllUsers")
 		},function(response){

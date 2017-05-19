@@ -48,12 +48,13 @@ public class BlogPostController {
 			Error error=new Error(1,"Unauthroized user");
 			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
 		}
-		List<BlogPost> blogPosts=null;
-		if(user.getRole().equals("admin")|| user.getRole().equals("Employee"))
+		List<BlogPost> blogPosts = blogDao.getBlogPosts(approved);
+	
+		/*if(user.getRole().equals("admin")|| user.getRole().equals("Employee"))
 			blogPosts=blogDao.getBlogPosts(0);
 		else
 			blogPosts=blogDao.getBlogPosts(1);
-	
+	*/
 		return new ResponseEntity<List<BlogPost>>(blogPosts,HttpStatus.OK);
 	}
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
@@ -78,7 +79,7 @@ public class BlogPostController {
 		blogComment.setCommentedBy(user);
 		blogComment.setCommentedOn(new Date());
 		blogDao.addBlogComment(blogComment);
-		return new ResponseEntity<BlogComment>(blogComment, HttpStatus.OK);
+		return new ResponseEntity<BlogComment>(blogComment,HttpStatus.OK);
 	}
 
 	@RequestMapping(value="/getBlogComments/{blogPostId}",method=RequestMethod.GET)

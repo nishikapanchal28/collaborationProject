@@ -6,7 +6,7 @@ app.factory('FriendService',function($http){
 		return $http.get(BASE_URL + "/getAllUsers")
 	}	
 	friendService.sendFriendRequest=function(username){
-		return $http.put(BASE_URL + "/friendRequest"+ username)
+		return $http.put(BASE_URL + "/friendRequest/"+ username)
 	}	
 	friendService.pendingRequests=function(){
 		return $http.get(BASE_URL + "/pendingRequests")

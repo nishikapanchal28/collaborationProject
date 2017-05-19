@@ -1,13 +1,12 @@
 app.controller('BlogDetailController',function($scope,$location,BlogService,$routeParams){
 	var id=$routeParams.id;
-	$scope.blogComment={body:'',blogPost:{}}
+	$scope.blogPost={body:'',blogPost:{}}
 	$scope.blogPost=BlogService.getBlogPostById(id)
 	.then(function(response){
-		$scope.blogPost=response.data
+		$scope.blogPosts=response.data
 	},function(response){
 		console.log(response.status)
 	})
-	
 	$scope.addBlogComment=function(){
 		$scope.blogComment.blogPost=$scope.blogPost;
 		BlogService.addBlogComment($scope.blogComment)
@@ -17,9 +16,7 @@ app.controller('BlogDetailController',function($scope,$location,BlogService,$rou
 		},function(response){
 			console.log(response.status)
 		})
-		
 	}
-	
 	$scope.getBlogComments=function(blogPostId){
 		$scope.showcomments=true;
 		$scope.blogComments=BlogService.getBlogComments(blogPostId)
