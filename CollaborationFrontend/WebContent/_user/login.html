@@ -215,19 +215,27 @@ a{color:inherit;text-decoration:none}
                     <a href="#forgot">Forgot Password?</a>
                 </div> -->
             </div>
+            
+            <form name="myForm">
             <div class="sign-up-htm">
                 <div class="group">
                     <label for="user" class="label">Username</label>
-                    <input id="user" type="text" class="input" ng-model="user.username">
+                    <input id="user" type="text" class="input" ng-model="user.username" name="myName" ng-model="myName" required>
+                    <span style="color:red" ng-show="myForm.myName.$dirty && myForm.myName.$invalid">Username is required.</span>
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Password</label>
-                    <input id="pass" type="password" class="input" ng-model="user.password"  data-type="password">
+                    <input id="pass" type="password" class="input" ng-model="user.password" name="password" ng-model="password" data-type="password" required>
+                <span style="color:red" ng-show="myForm.password.$touched">password is required</span>
                 </div>
               
                 <div class="group">
                     <label for="pass" class="label">Email Address</label>
-                    <input id="pass" type="text" class="input" ng-model="user.email" >
+                    <input id="pass" type="email" class="input"  ng-model="user.email" name="email" ng-model="email" required>
+                    <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+  <span ng-show="myForm.email.$error.required">Email is required.</span>
+  <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+  </span>
                 </div>
                 <div class="group">
                     <input type="submit" class="button" ng-click="registerUser()" value="Sign Up">

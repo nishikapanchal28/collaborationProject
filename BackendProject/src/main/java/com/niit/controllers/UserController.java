@@ -90,7 +90,5 @@ public class UserController {
 			userDao.updateUser(updatedUserDetails);
 			return new ResponseEntity<Void>(HttpStatus.OK);
 		}
-		
-
 }
 }
