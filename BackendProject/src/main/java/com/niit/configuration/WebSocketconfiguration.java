@@ -1,4 +1,4 @@
-/*package com.niit.configuration;
+package com.niit.configuration;
 
 import java.util.List;
 import org.springframework.context.annotation.ComponentScan;
@@ -62,7 +62,7 @@ public class WebSocketconfiguration implements WebSocketMessageBrokerConfigurer{
 	@Override
 	public boolean configureMessageConverters(List<MessageConverter> arg0) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 
@@ -72,4 +72,3 @@ public class WebSocketconfiguration implements WebSocketMessageBrokerConfigurer{
 		
 	}
 }
-*/

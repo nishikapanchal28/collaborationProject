@@ -1,10 +1,10 @@
 var app=angular.module("app",['ngRoute','ngCookies'])
 app.config(function($routeProvider){
 	$routeProvider
-	.when('/register',{
+	/*.when('/register',{
 		templateUrl:'_user/register.html',
 		controller:'UserController'
-	})
+	})*/
 	.when('/login',{
 		templateUrl:'_user/login.html',
 		controller:'UserController'
@@ -66,7 +66,10 @@ app.config(function($routeProvider){
     	controller:'FriendController'
     })
     
-    
+     .when('/chat',{
+    	templateUrl:'_chat/chat.html',
+    	controller:'ChatCtrl'
+    })
 })
 app.run(function($rootScope,$cookieStore,UserService,$location){
 	console.log('entering run method ')

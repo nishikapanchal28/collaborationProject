@@ -9,8 +9,9 @@ app.controller('UserController',function($scope,UserService,$location,$rootScope
 		},function(response){
 			console.log(response.status)
 			console.log(response.data)
+			
 			$scope.message=response.data.message
-			$location.path('/register')
+			$location.path('/login')
 		})
 	}
 	
