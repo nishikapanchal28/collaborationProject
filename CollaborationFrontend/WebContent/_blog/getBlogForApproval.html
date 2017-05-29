@@ -24,10 +24,10 @@
 
 <div>
 <form>
-<input type="radio" ng-model="blogPost.approved" value="true">Approve<br>
-<input type="radio" ng-model="blogPost.approved" value="false"> Reject<br>
-<a href="" ng-click="updateApproval()" class="btn btn-default">Update</a>
-<a href="#getAllBlogs" class="btn btn-default">Back</a>
+<input type="radio" ng-model="blogPost.approved" name="approved" value="true">Approve<br>
+<input type="radio" ng-model="blogPost.approved" name="approved" value="false"> Reject<br>
+<a href="#getAllBlogs" ng-click="updateApproval()" class="btn btn-default">Update</a>
+<a href="#getBlogForApproval" class="btn btn-default">Back</a>
 </form>
 </div>
 </body>

@@ -67,7 +67,4 @@ public class JobController {
 		Job job=jobDao.getJobById(id);
 		return new ResponseEntity<Job>(job,HttpStatus.OK);
 	}
-
-
-
 }

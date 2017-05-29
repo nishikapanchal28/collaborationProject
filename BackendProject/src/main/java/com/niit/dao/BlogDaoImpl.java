@@ -58,4 +58,5 @@ public class BlogDaoImpl implements BlogDao {
 		session.close();
 		
 	}
+
 }

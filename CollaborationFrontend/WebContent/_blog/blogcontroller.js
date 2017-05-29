@@ -22,4 +22,5 @@ app.controller("BlogController",function($scope,$location,BlogService){
 	},function(response){
 		console.log(response.status)
 	})
+	
 })

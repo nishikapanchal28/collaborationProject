@@ -69,7 +69,7 @@ public class BlogPostController {
 		BlogPost blogPost=blogDao.getBlogPostById(id);
 		return new ResponseEntity<BlogPost>(blogPost,HttpStatus.OK);
 	}
-	@RequestMapping(value="/addComment",method=RequestMethod.POST)
+	@RequestMapping(value="/addcomment",method=RequestMethod.POST)
 	public ResponseEntity<?> addBlogComment(@RequestBody BlogComment blogComment,HttpSession session){
 		User user=(User)session.getAttribute("user");
 		if(user==null){
@@ -79,7 +79,7 @@ public class BlogPostController {
 		blogComment.setCommentedBy(user);
 		blogComment.setCommentedOn(new Date());
 		blogDao.addBlogComment(blogComment);
-		return new ResponseEntity<BlogComment>(blogComment,HttpStatus.OK);
+		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
 	@RequestMapping(value="/getBlogComments/{blogPostId}",method=RequestMethod.GET)

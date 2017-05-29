@@ -22,7 +22,7 @@ private int id;
 private User commentedBy;
 private Date commentedOn;
 @ManyToOne(fetch=FetchType.LAZY)
-@JoinColumn(name="blogPost_id")
+@JoinColumn(name="blogpost_id")
 private BlogPost blogPost;
 private String body;
 public int getId() {

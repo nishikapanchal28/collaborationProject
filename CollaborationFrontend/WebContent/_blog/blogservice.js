@@ -12,13 +12,13 @@ app.factory('BlogService',function($http){
 		return $http.get(BASE_URL + "/list/"+ 0)
 	}
 	blogService.getBlogPostById=function(id){
-		return $http.get(BASE_URL + "/get/",+id)
+		return $http.get(BASE_URL + "/get/"+id)
 	}	
 	blogService.addBlogComment=function(blogComment){
 		return $http.post(BASE_URL + "/addComment",blogComment)
 	}	
 	blogService.getBlogComments=function(blogPostId){
-		return $http.get(BASE_URL + "/getBlogComments/",+blogPostId)
+		return $http.get(BASE_URL + "/getBlogComments/"+blogPostId)
 	}	
 	blogService.updateApproval=function(blogPost){
 		return $http.put(BASE_URL + "/updateApproval",blogPost)
