@@ -3,6 +3,7 @@ package com.niit.dao;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,8 @@ public class BlogDaoImpl implements BlogDao {
 	}
 	public void update(BlogPost blogPost) {
 		Session session=sessionFactory.openSession();
+		
+
 		session.update(blogPost);
 		session.flush();
 		session.close();

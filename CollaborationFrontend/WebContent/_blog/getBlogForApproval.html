@@ -5,30 +5,31 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="row">
-<div>
+<div class="container">
 <div class="panel panel-default">
 <div class="panel-heading">
-<div>{{blogPost.title}}</div>
-<span><strong>Created By:</strong>{{blogPost.createdBy.username}}</span>
- <span><strong>on: </strong>{{blogPost.createdOn | date:'medium'}}</span>
-          
-          </div>
-          <div class="panel-body">
-          {{blogPost.body}}
-          
-          </div>
-</div>
-</div>
+<center><b>Blog Details-Approve Or Reject the Blog</b></center>
 </div>
 
-<div>
-<form>
-<input type="radio" ng-model="blogPost.approved" name="approved" value="true">Approve<br>
-<input type="radio" ng-model="blogPost.approved" name="approved" value="false"> Reject<br>
-<a href="#getAllBlogs" ng-click="updateApproval()" class="btn btn-default">Update</a>
-<a href="#getBlogForApproval" class="btn btn-default">Back</a>
+<div class="panel-body">
+<span><strong>Title:</strong>{{blogPost.title}}</span><br>
+<span><strong>Created By:</strong>{{blogPost.createdBy.username}}</span><br>
+ <span><strong>Created On: </strong>{{blogPost.createdOn | date:'medium'}}</span><br>
+          <div class="panel-body">
+        <span><strong>Blog Content:</strong>  {{blogPost.body}}</span>
+          </div>
+</div>
+<form><div class="container">
+<tr ng-repeat="p in postsForApproval">
+<span><strong>Select Any One Option for Approval or Rejection:</strong></span><br>
+<input type="radio" ng-click="updateblogstatus(p.status,'A')" ng-model="blogPost.approved" name="approved" value="true">Approve<br>
+<input type="radio" ng-click="updateblogstatus(p.status,'D')" ng-model="blogPost.approved" name="approved" value="false"> Reject<br>
+<a href="#getAllBlogs" ng-click="updateApproval()" class="btn btn-primary">Update</a>
+<a href="#getBlogForApproval" class="btn btn-primary">Back</a><br>
+</tr>
 </form>
+</div>
+</div>
 </div>
 </body>
 </html>

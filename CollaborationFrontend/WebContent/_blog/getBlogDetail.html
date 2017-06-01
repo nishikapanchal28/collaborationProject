@@ -5,29 +5,43 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div>{{blogPost.title}}</div>
-<span><strong>Created By:</strong>{{blogPost.createdBy.username}}</span>
- <span><strong>on: </strong>{{blogPost.createdOn | date:'medium'}}</span>
-      <div class="panel-body">
-          {{blogPost.body}}
-          </div>
-<div class="row" >
-<a href="" ng-click="getBlogComments(blogPost.id)" class="btn btn-default">Show Comments</a>
+<div class="container">
+<div class="panel panel-default">
+<div class="panel-heading">
+<center><b>Blog Details-See All Comments And Post Comments</b></center>
+
+</div>
+<div class="panel panel-default">
+<div class="panel-body">
+<span><strong>Title:</strong>{{blogPost.title}}</span><br>
+<span><strong>Created By:</strong>{{blogPost.createdBy.username}}</span><br>
+ <span><strong>Created on: </strong>{{blogPost.createdOn | date:'medium'}}</span><br>
+            <div class="panel-body"><span><strong>Blog Content:</strong>  {{blogPost.body}}</span></div>
+        
+
+
+<button ng-click="getBlogComments(blogPost.id)" class="btn btn-info">Show Comments</button>
 <ul ng-show="showcomments">
 <li ng-repeat="comment in blogComments" style="list-style: none;">
-<div>
-{{comment.body}}
-<span><strong>Commented By </strong>{{comment.commentedBy.username}}</span>
-<span><strong>Commented On </strong>{{comment.commentedOn | date:'MM/dd/yyyy'}}</span>
+<div class="panel panel-default">
+ <div class="panel-heading"><span><strong>Commented By: </strong>{{comment.commentedBy.username}}</span><br></div>
+<div class="panel-body">
+<span><strong>Commented Content: </strong>{{comment.body}}</span><br>
+<span><strong>Commented On: </strong>{{comment.commentedOn | date:'MM/dd/yyyy'}}</span><br>
 </div>
+</div></div>
 </li>
 </ul>
 </div>
-<div class="col-sm-3 col-md-3 col-lg-2"	>
-<form>
-<textarea ng-model="blogComment.body"></textarea>
-<button ng-click="addBlogComment()" class="btn btn-primary btn-block">Post Comment</button>
+<div class="panel panel-default">
+ <div class="panel-heading"><td>Type Your Comment Here:</td><br></div>
+ <div class="panel-body">
+<form><br>
+<textarea ng-model="blogComment.body"></textarea><br><br>
+<button ng-click="addBlogComment()" class="btn btn-primary">Post Comment</button>
 </form>
-</div> 
+</div>
+</div>
+</div>
 </body>
 </html>

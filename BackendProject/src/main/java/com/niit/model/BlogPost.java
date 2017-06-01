@@ -32,7 +32,7 @@ private String title;
 @Lob
 @Column(name="blog_body")
 private String body;
-
+private char status;
 private boolean approved;
 @OneToMany(mappedBy="blogPost",fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 @JsonIgnore
@@ -79,4 +79,11 @@ public List<BlogComment>getBlogComments() {
 public void setBlogComments(List<BlogComment> blogComments) {
 	this.blogComments = blogComments;
 }
+public char getStatus() {
+	return status;
+}
+public void setStatus(char status) {
+	this.status = status;
+}
+
 }

@@ -26,21 +26,18 @@ public class BlogPostController {
 	private BlogDao blogDao;
 	@RequestMapping(value="/saveBlogPost",method=RequestMethod.POST)
 	public ResponseEntity<?> saveBlogPost(@RequestBody BlogPost blogPost, HttpSession session ){
-		
 		User user=(User)session.getAttribute("user");
-		if(user==null){
-			Error error=new Error(3,"Unauthorized user");
-			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
-		}
-		else{
+		try{
 			blogPost.setCreatedBy(user);
 			blogPost.setCreatedOn(new Date());
-			blogDao.saveBlogPost(blogPost);
-			return new ResponseEntity<Void>(HttpStatus.OK);
+		
+		return new ResponseEntity<Void>(HttpStatus.OK);
+		}catch(Exception e){
+			e.printStackTrace();
+			Error error=new Error(3,"Couldnt insert user details. Cannot have null/duplicate values " + e.getMessage());
+			return new ResponseEntity<Error>(error,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		
-		
-	}
+		}
 	@RequestMapping(value = "/list/{approved}", method = RequestMethod.GET)
 	public ResponseEntity<?> getBlogList(@PathVariable int approved,HttpSession session){
 		User user=(User)session.getAttribute("user");
@@ -69,7 +66,7 @@ public class BlogPostController {
 		BlogPost blogPost=blogDao.getBlogPostById(id);
 		return new ResponseEntity<BlogPost>(blogPost,HttpStatus.OK);
 	}
-	@RequestMapping(value="/addcomment",method=RequestMethod.POST)
+	@RequestMapping(value="/addComment",method=RequestMethod.POST)
 	public ResponseEntity<?> addBlogComment(@RequestBody BlogComment blogComment,HttpSession session){
 		User user=(User)session.getAttribute("user");
 		if(user==null){
@@ -79,7 +76,7 @@ public class BlogPostController {
 		blogComment.setCommentedBy(user);
 		blogComment.setCommentedOn(new Date());
 		blogDao.addBlogComment(blogComment);
-		return new ResponseEntity<Void>(HttpStatus.OK);
+		return new ResponseEntity<BlogComment>(blogComment,HttpStatus.OK);
 	}
 
 	@RequestMapping(value="/getBlogComments/{blogPostId}",method=RequestMethod.GET)
@@ -99,7 +96,17 @@ public class BlogPostController {
 			Error error=new Error(1,"Unauthroized user");
 			return new ResponseEntity<Error>(error,HttpStatus.UNAUTHORIZED);
 		}
+		if(blogPost.isApproved())
+		{
+			blogPost.setStatus('A');
 		blogDao.update(blogPost);
+		}
+		else if(blogPost.isApproved())
+		{
+			blogPost.setStatus('D');
+			blogDao.update(blogPost);
+		}
+	
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 

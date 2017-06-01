@@ -6,7 +6,9 @@ app.controller("BlogController",function($scope,$location,BlogService){
 			$location.path('/getAllBlogs')
 		},function(response){
 			console.log(response.status)
-			$location.path('/login')
+			console.log(response.data)
+			$scope.message=response.data.message
+			$location.path('/addPost')
 		})
 	}
 	$scope.blogPosts=BlogService.getBlogPost()
@@ -19,6 +21,7 @@ app.controller("BlogController",function($scope,$location,BlogService){
 	$scope.postsForApproval=BlogService.getAllBlogsForApproval()
 	.then(function(response){
 		$scope.postsForApproval=response.data;
+		$scope.showpostsForApproval=true
 	},function(response){
 		console.log(response.status)
 	})

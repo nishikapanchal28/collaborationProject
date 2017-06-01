@@ -12,9 +12,9 @@ app.controller('BlogDetailController',function($scope,$location,BlogService,$rou
 		BlogService.addBlogComment($scope.blogComment)
 		.then(function(response){
 			console.log(response.status);
-			$location.path("/getBlogDetail/"+$scope.blogPost.id)
-/*			$scope.blogComment.body=''
-*/		},function(response){
+			$location.path("/getBlogDetail/"+blogPost.id)
+		$scope.blogComment.body=''
+	},function(response){
 			console.log(response.status)
 		})
 	}
